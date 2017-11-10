@@ -3,10 +3,12 @@ package com.lk.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebServlet("/demo")
 public class ServletDemo extends HttpServlet{
     
     private static final long serialVersionUID = 1L;
@@ -27,7 +29,7 @@ public class ServletDemo extends HttpServlet{
         
         String action = request.getParameter("action");
         if("login_input".equals(action)) {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/jsp/login.jsp").forward(request, response);
         } else if("login".equals(action)) {
             String name = request.getParameter("name");
             String password = request.getParameter("password");
