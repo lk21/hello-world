@@ -29,19 +29,26 @@ public class CustomerService {
     
     public Customer getCustomer(long id) {
         //
-        return null;
+        String sql = "select * from customer where id =" + id;
+        return DatabaseHelper.queryEntity(Customer.class, sql);
     }
-    
+    /*
+     * 创建客户
+     */
     public boolean createCustomer(Map<String, Object> map) {
-        return false;
+        return DatabaseHelper.insertEntity(Customer.class, map);
     }
-    
+    /*
+     * 更新客户
+     */
     public boolean updateCustomer(long id, Map<String, Object> map) {
-        return false;
+        return DatabaseHelper.updateEntity(Customer.class, id, map);
     }
-    
+    /*
+     * 删除客户
+     */
     public boolean deleteCustomer(long id) {
-        return false;
+        return DatabaseHelper.deleteEntity(Customer.class, id);
     }
 
 }

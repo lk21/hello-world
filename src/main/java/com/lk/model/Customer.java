@@ -13,6 +13,7 @@ public class Customer {
     private String email;
     //备注
     private String remark;
+    
     public long getId() {
         return id;
     }

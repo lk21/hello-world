@@ -1,5 +1,9 @@
 package com.lk.test;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +11,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.lk.helper.DatabaseHelper;
 import com.lk.model.Customer;
 import com.lk.service.CustomerService;
 
@@ -23,8 +28,8 @@ public class CustomerServiceTest {
     
     
     @Before
-    public void init() {
-        
+    public void init() throws Exception {
+        DatabaseHelper.executeSqlFile("sql/customer_init.sql");
     }
     
     @Test
@@ -52,8 +57,10 @@ public class CustomerServiceTest {
     
     @Test
     public void updateCustomerTest() throws Exception {
-        long id = 1;
-        boolean result = customerService.deleteCustomer(id);
+        long id = 2;
+        Map<String, Object> map = new HashMap<>();
+        map.put("contact", "林凯");
+        boolean result = customerService.updateCustomer(id, map);
         Assert.assertTrue(result);
     }
     
