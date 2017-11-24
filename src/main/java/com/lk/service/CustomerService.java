@@ -7,11 +7,12 @@ import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.smart4j.framework.annotation.Service;
 
 import com.lk.helper.DatabaseHelper;
 import com.lk.model.Customer;
 import com.lk.util.PropsUtil;
-
+@Service
 public class CustomerService {
     
     
